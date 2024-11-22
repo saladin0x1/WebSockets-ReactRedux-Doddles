@@ -1,5 +1,3 @@
-/* ../styles/AdminPage.css */
-
 /* Admin page main container styling */
 .admin-page {
   display: flex;
@@ -121,4 +119,19 @@
   .game-table th, .game-table td {
     font-size: 12px; /* Smaller font size for table */
   }
+}
+
+/* User count message - how many users joined */
+.users-count-message {
+  font-size: 1.2rem;
+  color: #a0a0a0; /* Light gray color */
+  margin-top: 20px;
+}
+
+/* Additional button margin between actions */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Adds spacing between buttons */
+  margin-top: 20px;
 }
