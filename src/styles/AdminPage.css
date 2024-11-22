@@ -1,6 +1,5 @@
 /* ../styles/AdminPage.css */
 
-
 /* Admin page main container styling */
 .admin-page {
   display: flex;
@@ -33,6 +32,53 @@
   margin-bottom: 20px; /* Space below paragraph */
 }
 
+/* Button styling for Start A Game - Notion-like */
+.start-game-btn {
+  font-size: 16px; /* Set font size */
+  padding: 12px 24px; /* Add padding */
+  background-color: #3c3f47; /* Dark button background (Notion-like) */
+  color: #e0e0e0; /* Light text color for the button */
+  border: 1px solid #444; /* Subtle border to match the Notion feel */
+  border-radius: 6px; /* Rounded corners */
+  cursor: pointer; /* Change cursor on hover */
+  transition: background-color 0.3s ease, transform 0.2s; /* Smooth transitions */
+  margin-top: 20px; /* Space above the button */
+  text-transform: uppercase; /* Uppercase text for a clean look */
+}
+
+/* Hover effect for Start Game button */
+.start-game-btn:hover {
+  background-color: #444a54; /* Slightly lighter background on hover */
+  transform: scale(1.05); /* Slight scaling effect on hover */
+}
+
+/* Game table styling */
+.game-table {
+  margin-top: 30px;
+  width: 80%; /* Adjust width of the table */
+}
+
+.game-table table {
+  width: 100%;
+  border-collapse: collapse; /* Ensures no spacing between borders */
+}
+
+.game-table th, .game-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #444;
+  color: #e0e0e0; /* Light text color for table */
+}
+
+.game-table th {
+  background-color: #3c3f47; /* Dark header background */
+  font-weight: bold;
+}
+
+.game-table td {
+  background-color: #2b2d31; /* Dark row background */
+}
+
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .admin-page h1 {
@@ -41,6 +87,19 @@
 
   .admin-page p {
     font-size: 1rem; /* Smaller paragraph text on mobile */
+  }
+
+  .start-game-btn {
+    font-size: 14px; /* Smaller button text on mobile */
+    padding: 10px 18px; /* Smaller button padding */
+  }
+
+  .game-table {
+    width: 95%; /* Adjust table width on smaller screens */
+  }
+
+  .game-table th, .game-table td {
+    font-size: 14px; /* Smaller font size for table */
   }
 }
 
@@ -52,5 +111,14 @@
 
   .admin-page p {
     font-size: 0.9rem; /* Even smaller paragraph text on extra small screens */
+  }
+
+  .start-game-btn {
+    font-size: 12px; /* Smaller button text on very small screens */
+    padding: 8px 16px; /* Adjust button padding */
+  }
+
+  .game-table th, .game-table td {
+    font-size: 12px; /* Smaller font size for table */
   }
 }
