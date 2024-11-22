@@ -1,4 +1,7 @@
-/* src/components/AdminPage/AdminPage.css */
+/* ../styles/AdminPage.css */
+
+
+/* Admin page main container styling */
 .admin-page {
   display: flex;
   flex-direction: column;
@@ -6,25 +9,27 @@
   align-items: center;
   height: 100vh; /* Full viewport height */
   width: 100vw; /* Full viewport width */
-  background-color: #55585b; /* Dark background for contrast */
-  color: #f6f6f6; /* Dark text for contrast */
+  background-color: #2b2d31; /* Darker background to match Notion-like feel */
+  color: rgba(255, 255, 255, 0.87); /* Semi-transparent white text */
   text-align: center; /* Center-align text */
   padding: 0;
   margin: 0;
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+/* Heading styling for admin page */
 .admin-page h1 {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #007bff; /* Blue heading */
+  color: #f0f0f0; /* Light gray for heading */
   margin-bottom: 20px; /* Space below the heading */
-  line-height: 1.2; /* Add space between lines for readability */
+  line-height: 1.2; /* Add space between lines */
 }
 
+/* Paragraph text styling */
 .admin-page p {
   font-size: 1.2rem;
-  color: #fffafa;
+  color: #e0e0e0; /* Slightly darker gray text for paragraph */
   margin-bottom: 20px; /* Space below paragraph */
 }
 

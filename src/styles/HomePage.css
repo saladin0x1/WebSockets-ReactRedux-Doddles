@@ -1,3 +1,6 @@
+/* ./styles/HomePage.css */
+
+
 /* Home page main container styling */
 .home-page {
   display: flex;
@@ -6,7 +9,7 @@
   align-items: center;
   height: 100vh; /* Full viewport height */
   width: 100vw; /* Full viewport width */
-  background-color: #55585b; /* Dark background for contrast */
+  background-color: #2b2d31; /* Darker background for a more Notion-like feel */
   color: rgba(255, 255, 255, 0.87); /* Semi-transparent white text */
   text-align: center; /* Center-align text */
   padding: 0;
@@ -19,7 +22,7 @@
   font-size: 3.2em;
   margin-bottom: 20px;
   font-weight: bold;
-  color: #ffffff;
+  color: #f0f0f0; /* Lighter gray for the heading */
   line-height: 1.2; /* Add some space between lines */
 }
 
@@ -32,9 +35,9 @@
 .buttons button {
   font-size: 16px;
   padding: 10px 20px;
-  background-color: #007bff; /* Primary blue button */
-  color: white;
-  border: none;
+  background-color: #3a3f47; /* Slightly lighter gray for the button */
+  color: #f0f0f0; /* Lighter text for the button */
+  border: 1px solid #555; /* Border to match the monochrome theme */
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease; /* Smooth transition for hover */
@@ -43,7 +46,7 @@
 
 /* Hover effect for buttons */
 .buttons button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #525c66; /* Slightly lighter gray on hover */
 }
 
 /* Responsive adjustments */
