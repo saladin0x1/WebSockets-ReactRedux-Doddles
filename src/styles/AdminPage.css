@@ -1,0 +1,51 @@
+/* src/components/AdminPage/AdminPage.css */
+.admin-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  background-color: #55585b; /* Dark background for contrast */
+  color: #f6f6f6; /* Dark text for contrast */
+  text-align: center; /* Center-align text */
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.admin-page h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #007bff; /* Blue heading */
+  margin-bottom: 20px; /* Space below the heading */
+  line-height: 1.2; /* Add space between lines for readability */
+}
+
+.admin-page p {
+  font-size: 1.2rem;
+  color: #fffafa;
+  margin-bottom: 20px; /* Space below paragraph */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .admin-page h1 {
+    font-size: 2.2rem; /* Smaller heading on mobile */
+  }
+
+  .admin-page p {
+    font-size: 1rem; /* Smaller paragraph text on mobile */
+  }
+}
+
+/* Additional media query for very small screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .admin-page h1 {
+    font-size: 1.8rem; /* Even smaller heading on extra small screens */
+  }
+
+  .admin-page p {
+    font-size: 0.9rem; /* Even smaller paragraph text on extra small screens */
+  }
+}

@@ -1,0 +1,48 @@
+/* src/components/UserPage/UserPage.css */
+.user-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  background-color: #55585b; /* Dark background for contrast */
+  color: #f6f6f6; /* Dark text for contrast */
+  text-align: center; /* Center-align text */
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.user-page h1 {
+  font-size: 2.5rem;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.user-page p {
+  font-size: 1.2rem;
+  color: #fffafa;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .user-page h1 {
+    font-size: 2.2rem; /* Smaller heading on mobile */
+  }
+
+  .user-page p {
+    font-size: 1rem; /* Smaller paragraph text on mobile */
+  }
+}
+
+/* Additional media query for very small screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .user-page h1 {
+    font-size: 1.8rem; /* Even smaller heading on extra small screens */
+  }
+
+  .user-page p {
+    font-size: 0.9rem; /* Even smaller paragraph text on extra small screens */
+  }
+}

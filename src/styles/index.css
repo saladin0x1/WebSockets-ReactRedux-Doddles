@@ -1,0 +1,84 @@
+/* src/index.css */
+
+/* Root-level styles */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color-scheme: light dark;
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Body styling */
+body {
+  margin: 0; /* Remove default margin */
+  font-family: inherit; /* Use global font */
+  color: rgba(4, 3, 3, 0.87); /* Text color */
+  background-color: #242424; /* Dark background */
+  min-height: 100vh; /* Ensure full viewport height */
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center content horizontally */
+  justify-content: flex-start; /* Align content to the top */
+}
+
+/* Styling for anchor (a) links */
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+/* Global heading (h1) styling */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* Button styling */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Media query for light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547; /* Dark text for light background */
+    background-color: #ffffff; /* Light background */
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9; /* Light button background */
+  }
+}

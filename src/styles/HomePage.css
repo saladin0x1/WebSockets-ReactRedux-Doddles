@@ -1,0 +1,59 @@
+/* Home page main container styling */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  background-color: #55585b; /* Dark background for contrast */
+  color: rgba(255, 255, 255, 0.87); /* Semi-transparent white text */
+  text-align: center; /* Center-align text */
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Heading styling for home page */
+.home-page h1 {
+  font-size: 3.2em;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 1.2; /* Add some space between lines */
+}
+
+/* Buttons section */
+.buttons {
+  margin-top: 20px;
+}
+
+/* Button styling inside the home page */
+.buttons button {
+  font-size: 16px;
+  padding: 10px 20px;
+  background-color: #007bff; /* Primary blue button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover */
+  margin: 0 10px; /* Spacing between buttons */
+}
+
+/* Hover effect for buttons */
+.buttons button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .home-page h1 {
+    font-size: 2.4em; /* Slightly smaller heading on mobile */
+  }
+
+  .buttons button {
+    font-size: 14px; /* Smaller button text on mobile */
+    padding: 8px 16px; /* Smaller padding for buttons */
+  }
+}
