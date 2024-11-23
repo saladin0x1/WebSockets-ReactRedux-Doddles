@@ -1,0 +1,109 @@
+/* Global reset */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa; /* Light gray background */
+  font-family: 'Inter', sans-serif; /* Notion font */
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  grid-template-rows: repeat(3, 1fr); /* 3 equal rows */
+  pointer-events: none; /* Make sure grid doesn't interfere with other interactions */
+}
+
+.grid-line {
+  border: 1px solid rgba(0, 0, 0, 0.2); /* Light grid lines */
+}
+
+.splash-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  transition: opacity 1s ease-out; /* Fade-out transition */
+}
+
+/* Fade-out transition */
+.splash-container.fade-out {
+  opacity: 1;
+}
+
+/* 'MARTER' text sliding in */
+.marter-text {
+  position: absolute;
+  transform: translateX(-200%); /* Initially far behind the box */
+  opacity: 0; /* Start with the text hidden */
+  z-index: 2;
+  transition: transform 1s ease-out, opacity 1s ease-out 1s;
+  font-family: 'Inter', sans-serif;
+  font-size: 55px;
+  font-weight: 600;
+  fill: black;
+}
+
+/* 'S' box with white background */
+.splash-svg rect {
+  fill: white; /* Solid white background for the square */
+  stroke: black;
+  stroke-width: 5;
+  animation: boxIn 1.5s ease-out forwards;
+}
+
+/* 'S' box animation */
+@keyframes boxIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 'S' symbol drawing */
+.splash-svg path {
+  fill: transparent;
+  stroke: black;
+  stroke-width: 3;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: drawS 1.5s ease-out 1s forwards;
+}
+
+/* Animation for drawing the 'S' symbol */
+@keyframes drawS {
+  0% {
+    stroke-dashoffset: 400;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Background behind 'S' box */
+.splash-svg .box-background {
+  fill: white;
+  stroke: black;
+  stroke-width: 5;
+  z-index: 1;
+}
