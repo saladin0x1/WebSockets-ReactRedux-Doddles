@@ -1,67 +1,108 @@
-/* ./styles/HomePage.css */
-/* Home page main container styling */
-.home-page {
+/* Navbar styling */
+.navbar {
+  position: fixed;
+  top: 10px; /* Offset slightly from the top */
+  left: 5%; /* Add a margin on the sides */
+  width: 90%; /* Leave space on both sides */
+  height: 50px; /* Thinner navbar */
+  background-color: #ffffff; /* Clean white background */
+  border-radius: 10px; /* Rounded corners for a modern look */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space out the logo and hamburger */
+  padding: 0 15px; /* Adjusted padding for a thinner navbar */
+  box-shadow: 0px 4px 8px rgba(200, 200, 200, 0.7); /* Subtle shadow */
+  border: 1px solid rgba(200, 200, 200, 0.6); /* Light grey border */
+  z-index: 100; /* Ensure it stays above other elements */
+  transition: all 0.3s ease; /* Smooth transition for resizing */
+}
+
+/* Logo styles in navbar */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  height: 40px; /* Adjust logo height to fit thinner navbar */
+  width: auto; /* Maintain aspect ratio */
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Smooth hover animation */
+}
+
+.navbar-logo:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Hamburger menu styles */
+.hamburger-menu {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Full viewport height */
-  width: 100vw; /* Full viewport width */
-  background-color: #2b2d31; /* Darker background for a more Notion-like feel */
-  color: rgba(255, 255, 255, 0.87); /* Semi-transparent white text */
-  text-align: center; /* Center-align text */
-  padding: 0;
-  margin: 0;
-  overflow-x: hidden; /* Prevent horizontal scroll */
-  opacity: 0; /* Start with the homepage hidden */
-  transition: opacity 1.5s ease-in; /* Smooth fade-in effect */
-}
-
-/* When the home page is visible (after splash screen), set opacity to 1 */
-.home-page.visible {
-  opacity: 1;
-}
-
-/* Heading styling for home page */
-.home-page h1 {
-  font-size: 3.2em;
-  margin-bottom: 20px;
-  font-weight: bold;
-  color: #f0f0f0; /* Lighter gray for the heading */
-  line-height: 1.2; /* Add some space between lines */
-}
-
-/* Buttons section */
-.buttons {
-  margin-top: 20px;
-}
-
-/* Button styling inside the home page */
-.buttons button {
-  font-size: 16px;
-  padding: 10px 20px;
-  background-color: #3a3f47; /* Slightly lighter gray for the button */
-  color: #f0f0f0; /* Lighter text for the button */
-  border: 1px solid #555; /* Border to match the monochrome theme */
-  border-radius: 5px;
+  justify-content: space-around;
+  height: 20px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth transition for hover */
-  margin: 0 10px; /* Spacing between buttons */
+  transition: all 0.3s ease;
 }
 
-/* Hover effect for buttons */
-.buttons button:hover {
-  background-color: #525c66; /* Slightly lighter gray on hover */
+.hamburger-menu:hover .line {
+  background-color: #000; /* Change lines to black when hovering over the hamburger */
+}
+
+.hamburger-menu .line {
+  width: 25px;
+  height: 2px;
+  background-color: #555555; /* Dark grey for better contrast */
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 60px; /* Align below the navbar */
+  right: 15px; /* Align with the hamburger */
+  background-color: #ffffff; /* Match navbar background */
+  border: 1px solid rgba(200, 200, 200, 0.6); /* Subtle grey border */
+  border-radius: 8px; /* Rounded corners for dropdown */
+  box-shadow: 0px 4px 10px rgba(200, 200, 200, 0.8); /* Subtle shadow */
+  overflow: hidden;
+  z-index: 200; /* Ensure it stays above other elements */
+}
+
+/* Dropdown item styles */
+.dropdown-item {
+  padding: 10px 15px;
+  color: #555555; /* Darker grey text */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(200, 200, 200, 0.2); /* Light grey hover effect */
+}
+
+/* Homepage fade-in effect */
+.home-page {
+  display: none;
+  opacity: 0;
+  transition: opacity 1.5s ease-in; /* Smooth fade-in */
+}
+
+.home-page.visible {
+  display: block;
+  opacity: 1;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .home-page h1 {
-    font-size: 2.4em; /* Slightly smaller heading on mobile */
+  .navbar {
+    height: 45px; /* Further reduce navbar height for smaller screens */
+    padding: 0 10px; /* Adjust padding */
   }
 
-  .buttons button {
-    font-size: 14px; /* Smaller button text on mobile */
-    padding: 8px 16px; /* Smaller padding for buttons */
+  .navbar-logo {
+    height: 30px; /* Scale down logo */
+  }
+
+  .hamburger-menu .line {
+    width: 20px; /* Smaller hamburger icon */
+    height: 2px;
   }
 }

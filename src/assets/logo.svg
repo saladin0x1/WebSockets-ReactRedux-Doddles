@@ -1,0 +1,10 @@
+<svg width="350" height="100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 100">
+  <!-- Rounded Square Border -->
+  <rect x="5" y="5" width="90" height="90" fill="none" stroke="black" stroke-width="10" rx="15" />
+  <!-- Blocky "S" inside the box -->
+  <path d="M30 30 H70 V40 H40 V50 H70 V70 H30 V60 H60 V50 H30 Z" fill="black" />
+  <!-- 'MARTER' with a rounder font -->
+  <text x="105" y="69.5" font-size="55" font-family="Poppins, sans-serif" font-weight="normal" text-anchor="start" fill="black">
+    MARTER
+  </text>
+</svg>

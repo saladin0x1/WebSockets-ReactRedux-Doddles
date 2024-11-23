@@ -12,6 +12,7 @@ body {
   overflow: hidden;
 }
 
+/* Grid overlay for background effect */
 .grid-overlay {
   position: absolute;
   top: 0;
@@ -28,6 +29,7 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.2); /* Light grid lines */
 }
 
+/* Splash container settings for positioning */
 .splash-container {
   position: relative;
   display: flex;
@@ -35,12 +37,12 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  transition: opacity 1s ease-out; /* Fade-out transition */
+  transition: opacity 1.3s ease-out; /* Smooth fade-out transition */
 }
 
-/* Fade-out transition */
+/* Fade-out effect when transitioning to homepage */
 .splash-container.fade-out {
-  opacity: 1;
+  opacity: 1; /* Fully fade out */
 }
 
 /* 'MARTER' text sliding in */
@@ -49,22 +51,42 @@ body {
   transform: translateX(-200%); /* Initially far behind the box */
   opacity: 0; /* Start with the text hidden */
   z-index: 2;
-  transition: transform 1s ease-out, opacity 1s ease-out 1s;
+  transition: transform 1s ease-out, opacity 1s ease-out 1s; /* Delayed opacity transition */
   font-family: 'Inter', sans-serif;
   font-size: 55px;
   font-weight: 600;
   fill: black;
 }
 
-/* 'S' box with white background */
+/* Animation for drawing the 'S' symbol */
+.splash-svg path {
+  fill: transparent;
+  stroke: black;
+  stroke-width: 3;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: drawS 1.5s ease-out 1s forwards; /* Adding delay before the animation starts */
+}
+
+/* Animation for 'S' symbol */
+@keyframes drawS {
+  0% {
+    stroke-dashoffset: 400;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* 'S' box animation */
 .splash-svg rect {
-  fill: white; /* Solid white background for the square */
+  fill: white;
   stroke: black;
   stroke-width: 5;
   animation: boxIn 1.5s ease-out forwards;
 }
 
-/* 'S' box animation */
+/* 'S' box scaling in animation */
 @keyframes boxIn {
   0% {
     transform: scale(0.8);
@@ -78,32 +100,4 @@ body {
     transform: scale(1);
     opacity: 1;
   }
-}
-
-/* 'S' symbol drawing */
-.splash-svg path {
-  fill: transparent;
-  stroke: black;
-  stroke-width: 3;
-  stroke-dasharray: 400;
-  stroke-dashoffset: 400;
-  animation: drawS 1.5s ease-out 1s forwards;
-}
-
-/* Animation for drawing the 'S' symbol */
-@keyframes drawS {
-  0% {
-    stroke-dashoffset: 400;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-
-/* Background behind 'S' box */
-.splash-svg .box-background {
-  fill: white;
-  stroke: black;
-  stroke-width: 5;
-  z-index: 1;
 }

@@ -11,8 +11,8 @@ const SplashScreen = ({ onComplete }) => {
     // Start the text transition after the box animation
     const textTimeout = setTimeout(() => {
       document.querySelector('.marter-text').style.transform = 'translateX(0)';
-      document.querySelector('.marter-text').style.opacity = '1';
-    }, 1500); // Adjusted delay for text transition
+      document.querySelector('.marter-text').style.opacity = '2';
+    }, 1000); // Adjusted delay for text transition
 
     return () => clearTimeout(textTimeout);
   }, []);
@@ -23,8 +23,8 @@ const SplashScreen = ({ onComplete }) => {
       setSplashFinished(true); // Start the fade-out effect
       setTimeout(() => {
         onComplete(); // Trigger transition to homepage after fade-out completes
-      }, 1300); // Fade-out time adjusted to 1300ms for smoother transition
-    }, 2000); // Total splash screen duration (slightly longer to match transitions)
+      }, 1500); // Fade-out time adjusted to 1300ms for smoother transition
+    }, 2200); // Total splash screen duration (slightly longer to match transitions)
 
     return () => clearTimeout(timer);
   }, [onComplete]);
