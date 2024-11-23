@@ -3,6 +3,9 @@ import '../styles/SplashScreen.css';
 
 const SplashScreen = ({ onComplete }) => {
   const [isSplashFinished, setSplashFinished] = useState(false);
+  
+  // Flag to control grid visibility (set it to true/false based on your needs)
+  const isGridEnabled = false; // Set this to 'false' to disable the grid
 
   useEffect(() => {
     // Start the text transition after the box animation
@@ -28,18 +31,20 @@ const SplashScreen = ({ onComplete }) => {
 
   return (
     <div className={`splash-container ${isSplashFinished ? 'fade-out' : ''}`}>
-      {/* Full-screen 3x3 grid overlay */}
-      <div className="grid-overlay">
-        <div className="grid-line"></div>
-        <div className="grid-line"></div>
-        <div className="grid-line"></div>
-        <div className="grid-line"></div>
-        <div className="grid-line"></div>
-        <div className="grid-line"></div>
-        <div className="grid-line"></div>
-        <div className="grid-line"></div>
-        <div className="grid-line"></div>
-      </div>
+      {/* Conditionally render the grid based on the flag */}
+      {isGridEnabled && (
+        <div className="grid-overlay">
+          <div className="grid-line"></div>
+          <div className="grid-line"></div>
+          <div className="grid-line"></div>
+          <div className="grid-line"></div>
+          <div className="grid-line"></div>
+          <div className="grid-line"></div>
+          <div className="grid-line"></div>
+          <div className="grid-line"></div>
+          <div className="grid-line"></div>
+        </div>
+      )}
 
       <svg className="splash-svg" width="350" height="100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 100">
         {/* Background behind the 'S' box */}
