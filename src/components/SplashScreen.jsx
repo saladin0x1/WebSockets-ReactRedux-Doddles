@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/SplashScreen.css';
+import GridOverlay from './GridOverlay'; // Adjust the path accordingly
 
 const SplashScreen = ({ onComplete }) => {
   const [isSplashFinished, setSplashFinished] = useState(false);
-  
-  // Flag to control grid visibility (set it to true/false based on your needs)
-  const isGridEnabled = true; // Set this to 'false' to disable the grid
+  const isGridEnabled = true; // Toggle grid visibility (set to true/false as needed)
 
   useEffect(() => {
     // Start the text transition after the box animation
@@ -31,20 +30,7 @@ const SplashScreen = ({ onComplete }) => {
 
   return (
     <div className={`splash-container ${isSplashFinished ? 'fade-out' : ''}`}>
-      {/* Conditionally render the grid based on the flag */}
-      {isGridEnabled && (
-        <div className="grid-overlay">
-          <div className="grid-line"></div>
-          <div className="grid-line"></div>
-          <div className="grid-line"></div>
-          <div className="grid-line"></div>
-          <div className="grid-line"></div>
-          <div className="grid-line"></div>
-          <div className="grid-line"></div>
-          <div className="grid-line"></div>
-          <div className="grid-line"></div>
-        </div>
-      )}
+      {isGridEnabled && <GridOverlay isEnabled={isGridEnabled} />}
 
       <svg className="splash-svg" width="350" height="100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 100">
         {/* Background behind the 'S' box */}

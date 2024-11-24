@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/HomePage.css';
+import GridOverlay from './GridOverlay'; // Ensure correct path to GridOverlay
+
 import logo from '../assets/logo.svg'; // Import the SVG logo
 
 const HomePage = () => {
@@ -8,6 +10,7 @@ const HomePage = () => {
   const [showHomePage, setShowHomePage] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // State to track hamburger menu toggle
   const [randomCopy, setRandomCopy] = useState('');
+  const isGridEnabled = true; // Toggle grid visibility (set to true/false as needed)
 
   // Random copywriting content array
   const copywritingOptions = [
@@ -18,7 +21,7 @@ const HomePage = () => {
     'Get your brain buzzing with fun trivia!',
     'Who’s got the fastest fingers in the quiz world?',
     'The quiz starts now – don’t miss out!',
-    'Trivia made fun, with a buzzer twist!'
+    'Trivia made fun, with a buzzer twist!',
   ];
 
   // Select a random copywriting message
@@ -29,7 +32,7 @@ const HomePage = () => {
     // Simulate a delay before showing the homepage
     setTimeout(() => {
       setShowHomePage(true); // Make the homepage visible by adding the 'visible' class
-    }, 0); // 500ms delay before fading in
+    }, 500); // 500ms delay before fading in
   }, []);
 
   const handleNavigation = (role) => {
@@ -44,7 +47,7 @@ const HomePage = () => {
   };
 
   const toggleMenu = () => {
-    setMenuOpen(prev => !prev); // Toggle menu on hamburger click
+    setMenuOpen((prev) => !prev); // Toggle menu on hamburger click
   };
 
   const handleMouseEnter = () => {
@@ -57,6 +60,9 @@ const HomePage = () => {
 
   return (
     <div id="home-page" className={`home-page ${showHomePage ? 'visible' : ''}`}>
+      {/* Include the GridOverlay component if isGridEnabled is true */}
+      {isGridEnabled && <GridOverlay isEnabled={isGridEnabled} />}
+
       <header className="navbar">
         <div className="logo-container">
           <img src={logo} alt="Logo" className="navbar-logo" />
@@ -76,8 +82,8 @@ const HomePage = () => {
         {menuOpen && (
           <div
             className="dropdown-menu"
-            onMouseEnter={handleMouseEnter}  // Keep menu open when mouse hovers
-            onMouseLeave={handleMouseLeave}  // Close menu when mouse leaves
+            onMouseEnter={handleMouseEnter} // Keep menu open when mouse hovers
+            onMouseLeave={handleMouseLeave} // Close menu when mouse leaves
           >
             <div className="dropdown-item" onClick={() => handleNavigation('admin')}>
               Admin
