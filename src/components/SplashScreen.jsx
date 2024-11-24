@@ -5,7 +5,7 @@ const SplashScreen = ({ onComplete }) => {
   const [isSplashFinished, setSplashFinished] = useState(false);
   
   // Flag to control grid visibility (set it to true/false based on your needs)
-  const isGridEnabled = false; // Set this to 'false' to disable the grid
+  const isGridEnabled = true; // Set this to 'false' to disable the grid
 
   useEffect(() => {
     // Start the text transition after the box animation
@@ -23,7 +23,7 @@ const SplashScreen = ({ onComplete }) => {
       setSplashFinished(true); // Start the fade-out effect
       setTimeout(() => {
         onComplete(); // Trigger transition to homepage after fade-out completes
-      }, 1500); // Fade-out time adjusted to 1300ms for smoother transition
+      }, 1500); // Fade-out time adjusted to 1500 for smoother transition
     }, 2200); // Total splash screen duration (slightly longer to match transitions)
 
     return () => clearTimeout(timer);

@@ -5,6 +5,7 @@ import './styles/App.css'; // Global styles
 import HomePage from './components/HomePage';
 import AdminPage from './components/AdminPage';
 import UserPage from './components/UserPage';
+import Auth from './components/Auth'; // Import LoginForm component
 import SplashScreen from './components/SplashScreen'; // Import SplashScreen component
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/user" element={<UserPage />} />
+          <Route path="/auth" element={<Auth />} /> {/* Add Login page route */}
         </Routes>
       )}
     </Router>

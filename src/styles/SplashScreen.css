@@ -10,6 +10,12 @@ body {
   font-family: 'Inter', sans-serif; /* Notion font */
   position: relative;
   overflow: hidden;
+
+  /* Adding radial gradient dotted background */
+  background-image: radial-gradient(circle, rgb(221, 221, 238) 1px, rgba(0, 0, 0, 0) 0px);
+  background-repeat: repeat;
+  background-size: 15px 15px;
+  background-position: 50% 50%;
 }
 
 /* Grid overlay for background effect */

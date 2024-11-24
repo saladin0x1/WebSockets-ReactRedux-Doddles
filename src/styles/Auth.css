@@ -1,0 +1,101 @@
+/* Auth Container */
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border: 2px solid #1f4b60;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(200, 200, 200, 0.7);
+  width: 100%;
+  max-width: 400px;
+  margin: 30px auto;
+}
+
+/* Auth Heading */
+.auth-container h2 {
+  color: #126f75;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Input Fields */
+.form-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #126f75;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  background-color: #ffffff; /* Ensure a light background */
+
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #499fb1;
+}
+
+/* Submit Button */
+button[type='submit'] {
+  width: 100%;
+  padding: 12px;
+  background-color: #126f75;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type='submit']:hover {
+  background-color: #499fb1;
+}
+
+/* Error Message */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Toggle between Login and Signup */
+.auth-switch {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.auth-switch a {
+  color: #126f75;
+  text-decoration: none;
+  font-size: 14px;
+  margin: 0 10px;
+}
+
+.auth-switch a:hover {
+  color: #499fb1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 15px;
+  }
+
+  .auth-container h2 {
+    font-size: 20px;
+  }
+
+  button[type='submit'] {
+    padding: 10px;
+  }
+}
