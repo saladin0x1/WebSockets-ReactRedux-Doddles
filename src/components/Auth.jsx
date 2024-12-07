@@ -15,7 +15,7 @@ const Auth = ({ onAuthSuccess }) => {
     e.preventDefault();
     setError('');
 
-    // Check for matching passwords if signup
+    // Check for matching passwords if signing up
     if (!isLogin && password !== confirmPassword) {
       setError('Passwords do not match.');
       return;
@@ -24,31 +24,29 @@ const Auth = ({ onAuthSuccess }) => {
     if (email && password) {
       try {
         if (isLogin) {
-          // Login
-          try {
-            const authData = await pb.collection('users').authWithPassword(email, password);
-            onAuthSuccess(authData); // Handle the auth success, pass the auth data
-          } catch (error) {
-            setError('Login failed. Please check your credentials.');
+          // Login logic
+          const authData = await pb.collection('users').authWithPassword(email, password);
+
+          if (pb.authStore.isValid) {
+            console.log('Token:', pb.authStore.token);
+            console.log('User ID:', pb.authStore.model.id);
+            onAuthSuccess(authData); // Handle auth success and pass the auth data
           }
         } else {
-          // Signup
+          // Signup logic
           const data = {
             email,
             password,
-            passwordConfirm: confirmPassword, // Password confirmation required for signup
+            passwordConfirm: confirmPassword,
+            emailVisibility: true, // Optional: Ensure email is visible if required
           };
-          try {
-            const record = await pb.collection('users').create(data);
-            // Optionally send verification email
-            await pb.collection('users').requestVerification(email);
-            setIsLogin(true); // Switch to login view after successful signup
-          } catch (error) {
-            setError('Signup failed. Please try again.');
-          }
+
+          await pb.collection('users').create(data);
+          await pb.collection('users').requestVerification(email); // Send a verification email
+          setIsLogin(true); // Switch to login view
         }
       } catch (err) {
-        setError('Server error, please try again later.');
+        setError(isLogin ? 'Login failed. Please check your credentials.' : 'Signup failed. Please try again.');
       }
     } else {
       setError('Please fill in all fields.');
@@ -92,14 +90,14 @@ const Auth = ({ onAuthSuccess }) => {
         <button type="submit">{isLogin ? 'Login' : 'Sign Up'}</button>
       </form>
       <div className="auth-switch">
-        <a
-          href="#"
+        <button
           onClick={() => {
             setIsLogin(!isLogin); // Toggle between login and signup
+            setError(''); // Clear any existing errors
           }}
         >
           {isLogin ? "Don't have an account? Sign up" : 'Already have an account? Login'}
-        </a>
+        </button>
       </div>
     </div>
   );
