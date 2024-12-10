@@ -1,25 +1,37 @@
+/* Global Body and Root Styles */
+body {
+  display: flex; /* Enable Flexbox on the body */
+  width: 100vw; /* Ensure body stretches to the full width of the viewport */
+  height: 100vh; /* Ensure body stretches to the full height of the viewport */
+  margin: 0; /* Remove default margin */
+}
+
+#root {
+  flex-grow: 1; /* Allow #root to grow and fill the remaining space */
+  width: 100%; /* Ensure root stretches across the full width */
+  display: flex;
+  flex-direction: row;
+}
+
 /* Profile Panel */
 .profile-panel {
   display: flex;
-  width: 100%;
-  height: 100vh;
+  width: 100%; /* Ensure profile panel stretches to the full width */
+  height: 100%;
   background-color: transparent;
-  position: relative;
   padding: 20px;
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 /* Sidebar */
 .sidebar {
-  width: 300px;
+  width: 300px; /* Fixed width for the sidebar */
   height: 100%;
   background-color: #f3f4f6;
   padding: 20px;
   border-radius: 16px; /* Rounded corners */
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
-  transition: left 0.3s ease;
+  position: static; /* Use static positioning */
 }
 
 .sidebar h3 {
@@ -49,15 +61,15 @@
   flex: 1;
   padding: 20px;
   background-color: transparent;
-  margin-left: 320px;
+  margin-left: 20px; /* Adjusted margin to create spacing from the sidebar */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  position: relative;
   border-radius: 16px; /* Rounded corners */
   max-height: calc(100vh - 40px);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Ensures button is at the bottom */
+  box-sizing: border-box;
 }
 
 /* Profile Header */
@@ -139,7 +151,7 @@
   outline: none;
 }
 
-/* Save Changes Button (Rectangle at Bottom Left) */
+/* Save Changes Button */
 .save-changes-btn {
   background-color: #126f75;
   color: white;
@@ -169,14 +181,6 @@
   }
 
   .sidebar {
-    position: fixed;
-    left: -300px;
-    top: 0;
-    width: 300px;
-    transition: left 0.3s ease;
-  }
-
-  .sidebar-visible {
-    left: 0;
+    width: 100%; /* Sidebar occupies full width in smaller screens */
   }
 }
