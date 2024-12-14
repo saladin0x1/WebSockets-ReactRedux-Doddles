@@ -10,7 +10,7 @@ const HomePage = () => {
   const [showHomePage, setShowHomePage] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // State to track hamburger menu toggle
   const [randomCopy, setRandomCopy] = useState('');
-  const isGridEnabled = true; // Toggle grid visibility (set to true/false as needed)
+  const isGridEnabled = false; // Toggle grid visibility (set to true/false as needed)
 
   // Random copywriting content array
   const copywritingOptions = [

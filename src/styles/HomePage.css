@@ -1,18 +1,17 @@
+/* HomePage.css for ./components/HomePage.jsx */
+
 /* Global styles */
-* {
+html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
   font-family: 'Arial', sans-serif;
   background-color: #f0f0f0; /* Light gray background */
   color: #333; /* Dark text for contrast */
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   flex-direction: column;
 }
 
@@ -23,7 +22,8 @@ body {
   left: 5%;
   width: 90%;
   height: 50px;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1); /* White with 10% opacity */
+  /* background-color: #ffffff; */
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -69,7 +69,7 @@ body {
   top: 60px;
   right: 10px;
   background-color: #ffffff;
-  border: 2px solid #3b90a1;
+  border: 2px solid #1f4b60;
   border-radius: 8px;
   z-index: 200;
   opacity: 1;
@@ -109,12 +109,11 @@ body {
 .home-page.visible {
   opacity: 1;
 }
-
 .welcome-section {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0); /* White with 80% opacity */
   padding: 40px 60px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow to create the sticky note look */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
   margin: 20px;
   max-width: 500px;
   width: 100%;
@@ -122,20 +121,26 @@ body {
 }
 
 .welcome-section h1 {
+  background-color: rgba(255, 255, 255, 0.1); /* White with 10% opacity */
+
   font-size: 36px;
   font-weight: bold;
-  color: #333; /* Dark text for the header */
+  color: rgba(51, 51, 51, 0.9); /* Dark text with 90% opacity for better readability */
   margin-bottom: 10px;
 }
 
 .welcome-section p {
+  background-color: rgba(255, 255, 255, 0.1); /* White with 10% opacity */
+
+  
   font-size: 20px;
-  color: #777; /* Lighter gray for paragraph text */
+  color: rgba(119, 119, 119, 0.8); /* Lighter gray with 80% opacity */
   margin-top: 10px;
 }
 
+
 .random-copy-section {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1); /* White with 10% opacity */
   padding: 20px 40px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
