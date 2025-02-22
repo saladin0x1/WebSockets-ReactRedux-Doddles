@@ -38,9 +38,9 @@ const HomePage = () => {
   const handleNavigation = (role) => {
     setMenuOpen(false); // Close the menu after navigation
     if (role === 'admin') {
-      navigate('/admin');
+      window.location.href = 'http://localhost:3000/admin';
     } else if (role === 'user') {
-      navigate('/user');
+      window.location.href = 'http://localhost:3000/';
     } else if (role === 'auth') {
       navigate('/auth'); // Navigate to login page
     }

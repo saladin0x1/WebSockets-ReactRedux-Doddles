@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Auth.css'; // Import CSS file
 import PocketBase from 'pocketbase'; // Import the PocketBase SDK
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from React Router
@@ -17,6 +17,13 @@ const Auth = () => {
   const navigate = useNavigate();
   const redirectUrl = '/Profile';
 
+  // Check if user is already logged in on component mount
+  useEffect(() => {
+    if (pb.authStore.isValid) {
+      navigate(redirectUrl); // Redirect immediately if already logged in
+    }
+  }, [navigate, redirectUrl]); // Depend on navigate and redirectUrl to avoid infinite loop
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -30,12 +37,17 @@ const Auth = () => {
       try {
         if (isLogin) {
           // Login logic
-          const authData = await pb.collection('users').authWithPassword(email, password);
+          await pb.collection('users').authWithPassword(email, password);
 
           if (pb.authStore.isValid) {
             console.log('Token:', pb.authStore.token);
             console.log('User ID:', pb.authStore.model.id);
             navigate(redirectUrl);
+          } else {
+            // This case should ideally not happen if authWithPassword is successful and isValid is checked immediately after.
+            // However, for robustness, you can handle it.
+            setError('Login successful, but session is invalid. Please try again.');
+            console.error('Login successful but authStore invalid unexpectedly.');
           }
         } else {
           // Signup logic - Include firstName and lastName from seeder example

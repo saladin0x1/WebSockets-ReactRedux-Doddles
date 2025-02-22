@@ -6,6 +6,7 @@
   background-color: transparent;
   padding: 20px;
   box-sizing: border-box;
+  gap: 20px; /* Add spacing between sidebar and main content */
 }
 
 /* Sidebar */
@@ -16,12 +17,13 @@
   padding: 20px;
   border-radius: 16px; /* Rounded corners */
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-  position: static; /* Static positioning to avoid conflicts */
+  overflow-y: auto; /* Allow scrolling if content overflows */
 }
 
 .sidebar h3 {
   font-size: 24px;
   margin-bottom: 20px;
+  color: #126f75;
 }
 
 .sidebar ul {
@@ -30,38 +32,61 @@
   margin: 0;
 }
 
-.sidebar li {
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 18px;
   margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
   cursor: pointer;
 }
 
-.sidebar li.active {
-  font-weight: bold;
-  color: #126f75;
+.sidebar-item.active {
+  background-color: #126f75;
+  color: white;
+}
+
+.sidebar-item.under-construction {
+  opacity: 0.6;
+  cursor: not-allowed; /* Indicate non-clickable */
+}
+
+.sidebar-item.under-construction:hover {
+  background-color: transparent; /* Disable hover effect */
+}
+
+.coming-soon-badge {
+  font-size: 12px;
+  padding: 4px 8px;
+  background-color: #ff4d4d;
+  color: white;
+  border-radius: 12px;
+  margin-left: 10px;
 }
 
 /* Profile Container */
 .profile-container {
   flex-grow: 1;
   padding: 20px;
-  background-color: transparent;
-  margin-left: 20px; /* Adjusted margin to create spacing from the sidebar */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: white;
   border-radius: 16px; /* Rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   max-height: calc(100vh - 40px);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Ensures button is at the bottom */
-  box-sizing: border-box;
+  gap: 20px; /* Add spacing between sections */
 }
 
 /* Profile Header */
 .profile-header {
   display: flex;
   align-items: center;
-  margin-bottom: 30px;
+  justify-content: space-between; /* Align items to the sides */
+  margin-bottom: 20px;
 }
 
 .profile-photo-container {
@@ -93,6 +118,7 @@
   align-items: center;
   cursor: pointer;
   opacity: 0.7;
+  transition: background-color 0.3s ease;
 }
 
 .change-photo:hover {
@@ -105,15 +131,54 @@
   font-weight: bold;
 }
 
+/* Header Buttons */
+.header-buttons {
+  display: flex;
+  gap: 10px; /* Add spacing between buttons */
+}
+
+.home-btn {
+  background-color: #126f75;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.home-btn:hover {
+  background-color: #499fb1;
+}
+
+.logout-btn {
+  background-color: #ff4d4d;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #ff1a1a;
+}
+
 /* Profile Details */
 .profile-details {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Add spacing between form groups */
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
 }
 
 .form-group label {
@@ -129,6 +194,7 @@
   border-radius: 8px;
   font-size: 16px;
   margin-top: 5px;
+  transition: border-color 0.3s ease;
 }
 
 .form-group input:focus {
@@ -158,14 +224,25 @@
 @media (max-width: 768px) {
   .profile-panel {
     flex-direction: column;
-    padding: 0;
+    padding: 10px;
+  }
+
+  .sidebar {
+    width: 100%; /* Sidebar occupies full width in smaller screens */
+    margin-bottom: 20px;
   }
 
   .profile-container {
     margin-left: 0;
   }
 
-  .sidebar {
-    width: 100%; /* Sidebar occupies full width in smaller screens */
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .header-buttons {
+    align-self: flex-end;
   }
 }

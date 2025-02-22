@@ -8,6 +8,7 @@ import UserPage from './components/UserPage';
 import Auth from './components/Auth'; // Import LoginForm component
 import SplashScreen from './components/SplashScreen'; // Import SplashScreen component
 import ProfilePanel from './components/ProfilePanel';
+import ProtectedRoute from './components/ProtectedRoute'; // Import the ProtectedRoute component
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -26,7 +27,10 @@ function App() {
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/user" element={<UserPage />} />
           <Route path="/auth" element={<Auth />} /> {/* Add Login page route */}
-          <Route path="/profile" element={<ProfilePanel />} /> {/* Add Profile page route */}
+          {/* Protect the /profile route */}
+          <Route element={<ProtectedRoute />}>
+            <Route path="/profile" element={<ProfilePanel />} /> {/* Add Profile page route */}
+          </Route>
         </Routes>
       )}
     </Router>
